@@ -1,8 +1,145 @@
+/************************************************************
+____ ____ _  _ ____ ____ ____ _    
+| __ |___ |\ | |___ |__/ |__| |    
+|__] |___ | \| |___ |  \ |  | |___ 
+                                   
+*************************************************************/
+
 .App {
   text-align: center;
+  background-color: #282c34;
 }
 
-.App-logo {
+.Body{
+  background-color: #282c34;
+  min-height: 100vh;
+  align-items: center;
+
+}
+
+a{
+  text-decoration: none;
+  color: white
+}
+
+.title {
+  margin-left: 10%;
+  text-align: center;
+
+}
+
+.title-section {
+  text-align: center;
+  color: white;
+  font-size: 5ch;
+}
+.subtitle {
+  font-size: medium;
+}
+
+/***************************
+Header 
+***************************/
+.Header {
+  display: flex;
+  font-size: calc(18px + 2vmin);
+  color: white;
+  text-align: center!important;
+  background: linear-gradient(#032802, #282c34);
+  background-image: url(./assets/bgmusic.png) center fixed;
+  height: 30vmin;
+}
+
+.Header-banner {
+  height: 100%;
+  width: 100%;
+}
+
+.Header-logo {
+  height: 15vmin;
+  margin-left: 10%;
+  align-self: center;
+}
+
+/***************************
+Footer 
+***************************/
+
+.Footer {
+  display: flex;
+  font-size: calc(2px + 2vmin);
+  color: rgb(165, 165, 165);
+  background: linear-gradient(#282c34, #1d241c );
+  margin-top: 5%;
+  height: 15vmin;
+  justify-content: center;
+}
+
+/************************************************************
+_    ____ ____ _ _  _    ___  ____ ____ ____ 
+|    |  | | __ | |\ |    |__] |__| | __ |___ 
+|___ |__| |__] | | \|    |    |  | |__] |___ 
+
+*************************************************************/
+.Login{
+  flex-direction: column;
+  background-color: #36393f;
+  width: 60%;
+  margin: auto;
+  display: flex;
+  margin-top: 3%;
+  box-shadow: 2px 5px 15px 5px #57595e;
+}
+
+.login-circle{
+  padding:10;
+  align-self: center;
+  height: 17ch;
+  width: 17ch;
+  display:"inline-block";
+  background-color: #0e1a10;
+  border-radius: 50%;
+  box-shadow: 2px 5px 15px 5px #036a31;
+  align-content: center;
+}
+
+.login-icon{
+  width: 80%;
+  justify-content: center;
+  margin-top: 2%;
+}
+
+.login-button{
+  background-color: #036a31;
+  padding: 1ch;
+  width: 20%;
+  border-radius: 5%;
+  margin-top: 5%;
+  align-self: center;
+
+}
+
+.login-button{
+  background-color: #036a31;
+  padding: 1ch;
+  width: 20%;
+  border-radius: 5%;
+  margin-top: 5%;
+  align-self: center;
+
+}
+
+
+
+.login-banner{
+  width: 80%;
+  align-self: center;
+  z-index: 1;
+}
+
+
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -22,12 +159,12 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
-
+} */
+/* 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,37 +172,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-header{
-  background-image: url(./assets/bgmusic.png) center fixed;
-
-}
-.Header {
-  display: flex;
-  font-size: calc(18px + 2vmin);
-  color: white;
-  text-align: center!important;
-  background: linear-gradient(#342337, #534551);
-    background-image: url(./assets/bgmusic.png) center fixed;
-}
-
-.Header-banner {
-  height: 100%;
-  width: 100%;
-}
-
-.Header-logo {
-  height: 15vmin;
-  margin-left: 10%;
-  align-self: center;
-}
-
-.title {
-  margin-left: 10%;
-  text-align: center;
-
-}
-
-.subtitle {
-  font-size: medium;
-}
+} */

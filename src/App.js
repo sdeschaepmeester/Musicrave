@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './global.js';
 import './App.css';
 import Header from './components/Header.js';
+import Footer from './components/Footer';
 import MusicBody from './components/MusicBody';
 import Login from './components/Login';
 import {useEffect, useState} from "react";
@@ -49,10 +50,9 @@ function App() {
     return (
         <div className="App">
           <Header />
-            <header className="App-header">
-                <h1>Spotify React</h1>
+            <div className="Body">
                 {!token ?
-                    <Login onClick={getTokenFromLogin} />
+                    <Login onLogin={getTokenFromLogin} />
                     : <button onClick={logout}>Logout</button>}
 
                 {token ?
@@ -61,12 +61,13 @@ function App() {
                         <button type={"submit"}>Search</button>
                     </form>
 
-                    : <h2>Please login =</h2>
+                    : null
                 }
 
                 {renderArtists()}
 
-            </header>
+            </div>
+            <Footer />
         </div>
     );
   // return (
