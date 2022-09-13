@@ -1,6 +1,6 @@
-# Reactify
+# Musi'Crave
 
-Reactify is a small React project used as an example on how to use the Spotify API.
+Musi'Crave is a small React project used as an example on how to use the Spotify API.
 
 ## Development
 
