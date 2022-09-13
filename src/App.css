@@ -36,21 +36,36 @@
     transform: rotate(360deg);
   }
 }
+header{
+  background-image: url(./assets/bgmusic.png) center fixed;
 
+}
 .Header {
-  background-color: #2a2f2f;
-  min-height: 10vh;
   display: flex;
   font-size: calc(18px + 2vmin);
   color: white;
   text-align: center!important;
+  background: linear-gradient(#342337, #534551);
+    background-image: url(./assets/bgmusic.png) center fixed;
+}
+
+.Header-banner {
+  height: 100%;
+  width: 100%;
 }
 
 .Header-logo {
-  height: 20vmin;
-  margin-left: 5%;
+  height: 15vmin;
+  margin-left: 10%;
+  align-self: center;
 }
 
 .title {
-  margin-left: 30%;
+  margin-left: 10%;
+  text-align: center;
+
+}
+
+.subtitle {
+  font-size: medium;
 }

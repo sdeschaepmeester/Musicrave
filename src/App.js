@@ -1,35 +1,21 @@
 import logo from './logo.svg';
+import './global.js';
 import './App.css';
 import Header from './components/Header.js';
 import MusicBody from './components/MusicBody';
+import Login from './components/Login';
 import {useEffect, useState} from "react";
 import axios from 'axios';
 
 function App() {
-  const CLIENT_ID = "b39c9c2f4fa346a69e4cdbcafefd5185"
-  const REDIRECT_URI = "http://localhost:3000"
-  const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
-  const RESPONSE_TYPE = "token"
-
   const [token, setToken] = useState("")
   const [searchKey, setSearchKey] = useState("")
   const [artists, setArtists] = useState([])
 
-    useEffect(() => {
-        const hash = window.location.hash
-        let token = window.localStorage.getItem("token")
-
-        // getToken()
-
-
-        if (!token && hash) {
-            token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
-
-            window.location.hash = ""
-            window.localStorage.setItem("token", token)
-        }
-        setToken(token)
-    }, [])
+  const getTokenFromLogin = (tokenLogin) => {
+    console.log("Connect "+tokenLogin);
+    setToken(tokenLogin);
+  }
 
     const logout = () => {
         setToken("")
@@ -66,8 +52,7 @@ function App() {
             <header className="App-header">
                 <h1>Spotify React</h1>
                 {!token ?
-                    <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
-                        to Spotify</a>
+                    <Login onClick={getTokenFromLogin} />
                     : <button onClick={logout}>Logout</button>}
 
                 {token ?
@@ -76,7 +61,7 @@ function App() {
                         <button type={"submit"}>Search</button>
                     </form>
 
-                    : <h2>Please login</h2>
+                    : <h2>Please login =</h2>
                 }
 
                 {renderArtists()}
