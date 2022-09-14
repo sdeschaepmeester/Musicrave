@@ -9,10 +9,11 @@ import { useState} from "react";
 import {Routes, Route, useNavigate} from 'react-router-dom';
 
 function App() {
-
+    const [artistId, setArtistId] = useState([])
     const navigate = useNavigate();
 
-    const navigateToTracks = () => {
+    const navigateToTracks = (idArtist) => {
+        setArtistId(idArtist);
         navigate('/track');
     };
 
@@ -23,7 +24,6 @@ function App() {
   const [token, setToken] = useState("")
 
   const getTokenFromLogin = (tokenLogin) => {
-    console.log("Connect "+tokenLogin);
     setToken(tokenLogin);
     navigateToAlbum();
   }
@@ -39,16 +39,12 @@ function App() {
             <div className="Body">
                 {!token ?
                     <Login onLogin={getTokenFromLogin} />
-                    : <button onClick={logout}>Logout</button>}
-
-                {/* {token ?
-                    <Album token={token} />
-                    : null
-                } */}
+                    : <button onClick={logout}>Logout</button>
+                }
                 { token ?
                     <Routes>
                         <Route path="/" element={<Album token={token} navigateToTracks={navigateToTracks} />} />
-                        <Route path="/track" element={<Tracks token={token} />} />
+                        <Route path="/track" element={<Tracks token={token} artistId={artistId} />} />
                     </Routes>
                 :null}
                 
@@ -57,26 +53,6 @@ function App() {
             <Footer />
         </div>
     );
-  // return (
-  //   <div className="App">
-  //     <Header />
-  //     <MusicBody />
-  //     <header className="App-header">
-  //       <img src={logo} className="App-logo" alt="logo" />
-  //       <p>
-  //         Edit <code>src/App.js</code> and save to reload.
-  //       </p>
-  //       <a
-  //         className="App-link"
-  //         href="https://reactjs.org"
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //       >
-  //         Learn React
-  //       </a>
-  //     </header>
-  //   </div>
-  // );
 }
 
 export default App;
