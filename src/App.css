@@ -119,20 +119,8 @@ _    ____ ____ _ _  _    ___  ____ ____ ____
 
 }
 
-.login-button{
-  background-color: #036a31;
-  padding: 1ch;
-  width: 20%;
-  border-radius: 5%;
-  margin-top: 5%;
-  align-self: center;
-
-}
-
-
-
 .login-banner{
-  width: 80%;
+  width: 60%;
   align-self: center;
   z-index: 1;
 }
