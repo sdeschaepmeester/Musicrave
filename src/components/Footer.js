@@ -1,5 +1,3 @@
-import logo from '../assets/musicravelogo.png';
-import image from "../assets/bgmusic.png"; 
 import '../App.css';
 
 function Footer() {

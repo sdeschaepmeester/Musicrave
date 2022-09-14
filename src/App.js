@@ -1,50 +1,36 @@
-import logo from './logo.svg';
 import './global.js';
 import './App.css';
 import Header from './components/Header.js';
 import Footer from './components/Footer';
-import MusicBody from './components/MusicBody';
 import Login from './components/Login';
-import {useEffect, useState} from "react";
-import axios from 'axios';
+import Album from './components/Album';
+import Tracks from './components/Tracks.js';
+import { useState} from "react";
+import {Routes, Route, useNavigate} from 'react-router-dom';
 
 function App() {
+
+    const navigate = useNavigate();
+
+    const navigateToTracks = () => {
+        navigate('/track');
+    };
+
+    const navigateToAlbum = () => {
+        navigate('/');
+    };
+
   const [token, setToken] = useState("")
-  const [searchKey, setSearchKey] = useState("")
-  const [artists, setArtists] = useState([])
 
   const getTokenFromLogin = (tokenLogin) => {
     console.log("Connect "+tokenLogin);
     setToken(tokenLogin);
+    navigateToAlbum();
   }
 
     const logout = () => {
         setToken("")
         window.localStorage.removeItem("token")
-    }
-
-    const searchArtists = async (e) => {
-        e.preventDefault()
-        const {data} = await axios.get("https://api.spotify.com/v1/search", {
-            headers: {
-                Authorization: `Bearer ${token}`
-            },
-            params: {
-                q: searchKey,
-                type: "artist"
-            }
-        })
-
-        setArtists(data.artists.items)
-    }
-
-    const renderArtists = () => {
-        return artists.map(artist => (
-            <div key={artist.id}>
-                {artist.images.length ? <img width={"100%"} src={artist.images[0].url} alt=""/> : <div>No Image</div>}
-                {artist.name}
-            </div>
-        ))
     }
 
     return (
@@ -55,16 +41,17 @@ function App() {
                     <Login onLogin={getTokenFromLogin} />
                     : <button onClick={logout}>Logout</button>}
 
-                {token ?
-                    <form onSubmit={searchArtists}>
-                        <input type="text" onChange={e => setSearchKey(e.target.value)}/>
-                        <button type={"submit"}>Search</button>
-                    </form>
-
+                {/* {token ?
+                    <Album token={token} />
                     : null
-                }
-
-                {renderArtists()}
+                } */}
+                { token ?
+                    <Routes>
+                        <Route path="/" element={<Album token={token} navigateToTracks={navigateToTracks} />} />
+                        <Route path="/track" element={<Tracks token={token} />} />
+                    </Routes>
+                :null}
+                
 
             </div>
             <Footer />

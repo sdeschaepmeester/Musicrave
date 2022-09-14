@@ -30,8 +30,8 @@ a{
 
 .title-section {
   text-align: center;
-  color: white;
-  font-size: 5ch;
+  color: rgb(216, 216, 216);
+  font-size: 4ch;
 }
 .subtitle {
   font-size: medium;
@@ -120,12 +120,88 @@ _    ____ ____ _ _  _    ___  ____ ____ ____
 }
 
 .login-banner{
-  width: 60%;
+  width: 40%;
   align-self: center;
   z-index: 1;
+  margin-top: 5%;
 }
 
+/************************************************************
+____ _    ___  _  _ _  _    ___  ____ ____ ____ 
+|__| |    |__] |  | |\/|    |__] |__| | __ |___ 
+|  | |___ |__] |__| |  |    |    |  | |__] |___ 
 
+************************************************************/
+
+.Album{
+  flex-direction: column;
+  background-color: #36393f;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  margin-top: 3%;
+  box-shadow: 2px 5px 15px 5px #57595e;
+  padding: 5%;
+}
+
+.album-form{
+  margin-top: 5%;
+}
+
+.album-search{
+  width: 30%;
+  padding: 1%;
+  background-color: rgb(221, 221, 221);
+  color: rgb(125, 125, 125);
+  border: 2px solid rgb(84, 84, 84);
+  box-shadow: 2px 5px 15px 5px #57595e;
+}
+
+.album-search:focus{
+  color: rgb(33, 33, 33);
+  border: 2px solid rgb(37, 37, 37);
+}
+
+.album-search-button{
+  background-color: rgb(187, 187, 187);
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-left: 2%;
+}
+
+.album-search-icon{
+  width: 4ch;
+}
+
+/* Render artists */
+
+.artist-container{
+  width: 90%;
+  align-self: center;
+  background-color: #424443;
+  margin-top: 5%;
+}
+
+.artist-row{
+  width: 90%;
+  background-color: #626362;
+  margin-top: 5%;
+  text-align: left;
+  flex-direction: row;
+  box-shadow: 2px 2px 15px 2px #cfd1d5;
+  display: inline-block;
+}
+
+.artist-img{
+  width: 20%;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+.artist-name{
+  font-size: 3ch;
+  color: #cccdcc;
+}
 
 /* .App-logo {
   height: 40vmin;
