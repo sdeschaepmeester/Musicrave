@@ -173,6 +173,9 @@ ____ _    ___  _  _ _  _    ___  ____ ____ ____
   width: 4ch;
 }
 
+.album-button{
+  background-color: #d0d0d0;
+}
 /* Render artists */
 
 .artist-container{

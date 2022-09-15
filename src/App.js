@@ -3,22 +3,31 @@ import './App.css';
 import Header from './components/Header.js';
 import Footer from './components/Footer';
 import Login from './components/Login';
-import Album from './components/Album';
+import Artists from './components/Artists';
+import Albums from './components/Albums.js';
 import Tracks from './components/Tracks.js';
 import { useState} from "react";
 import {Routes, Route, useNavigate} from 'react-router-dom';
 
 function App() {
-    const [artistId, setArtistId] = useState([])
+    const [artistId, setArtistId] = useState([]);
+    const [artistName, setArtistName] = useState([]);
+    const [albumId, setAlbumId] = useState([]);
     const navigate = useNavigate();
 
-    const navigateToTracks = (idArtist) => {
+    const navigateToAlbums = (idArtist, nameArtist) => {
         setArtistId(idArtist);
-        navigate('/track');
+        setArtistName(nameArtist);
+        navigate('/albums');
     };
 
     const navigateToAlbum = () => {
         navigate('/');
+    };
+
+    const navigateToTracks = (idAlbum) => {
+        setAlbumId(idAlbum);
+        navigate('/tracks');
     };
 
   const [token, setToken] = useState("")
@@ -43,8 +52,9 @@ function App() {
                 }
                 { token ?
                     <Routes>
-                        <Route path="/" element={<Album token={token} navigateToTracks={navigateToTracks} />} />
-                        <Route path="/track" element={<Tracks token={token} artistId={artistId} />} />
+                        <Route path="/" element={<Artists token={token} navigateToAlbums={navigateToAlbums} />} />
+                        <Route path="/albums" element={<Albums token={token} artistId={artistId} artistName={artistName} navigateToTracks={navigateToTracks} />} />
+                        <Route path="/tracks" element={<Tracks token={token} albumId={albumId} />} />
                     </Routes>
                 :null}
                 
